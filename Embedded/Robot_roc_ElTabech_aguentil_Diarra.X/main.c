@@ -16,12 +16,10 @@ InitOscillator();
 // Configuration des entrées sorties
 /****************************************************************************************************/
 InitIO();
-
+InitPWM();
 InitTimer23();
 InitTimer1();
 
-InitPWM();
-PWMSetSpeed(0);
 
 LED_BLANCHE = 1;
 LED_BLEUE = 1;
