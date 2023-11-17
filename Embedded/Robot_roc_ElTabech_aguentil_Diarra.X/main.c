@@ -21,6 +21,7 @@ InitTimer23();
 InitTimer1();
 
 
+
 LED_BLANCHE = 1;
 LED_BLEUE = 1;
 LED_ORANGE = 1;
@@ -29,7 +30,7 @@ LED_ORANGE = 1;
 // Boucle Principale
 /****************************************************************************************************/
 while(1){
-
+    
 /*if (LED_BLANCHE == 1) LED_BLANCHE = 0;
 else LED_BLANCHE = 1;*/
 }
