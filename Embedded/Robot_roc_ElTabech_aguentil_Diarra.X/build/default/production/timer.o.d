@@ -1,7 +1,11 @@
-build/default/production/timer.o: timer.c timer.h PWM.h IO.h
+build/default/production/timer.o: timer.c timer.h PWM.h IO.h ADC.h main.h
 
 timer.h:
 
 PWM.h:
 
 IO.h:
+
+ADC.h:
+
+main.h:
