@@ -25,6 +25,8 @@ void InitPWM(void)
     /* Enable PWM Module */
     PTCONbits.PTEN = 1;
 }
+
+/*
 void PWMSetSpeed(float vitesseEnPourcents, int motor)
 {
     if(motor == MOTEUR_DROIT){
@@ -43,7 +45,7 @@ void PWMSetSpeed(float vitesseEnPourcents, int motor)
         MOTEUR_GAUCHE_DUTY_CYCLE = Abs(robotState.vitesseGaucheCommandeCourante*PWMPER);
     }
     
-}
+}*/
 
 void PWMUpdateSpeed()
 {
@@ -96,7 +98,7 @@ void PWMUpdateSpeed()
 }
 
 void PWMSetSpeedConsigne(float vitesseEnPourcents, char moteur){
-    if(moteur == MOTEUR_DROIT) robotState.vitesseDroiteConsigne = vitesseEnPourcents;
+    if(moteur == MOTEUR_DROIT) robotState.vitesseDroiteConsigne = vitesseEnPourcents+1;
     else if(moteur == MOTEUR_GAUCHE) robotState.vitesseGaucheConsigne = vitesseEnPourcents;
 }
 
