@@ -59,7 +59,7 @@ namespace Robot_ElTabech_Aguentil
 
         private void SendMessage()
         {
-            serialPort1.WriteLine(textBoxEmission.Text);
+            WriteLine("ff");
             //RichTextBox.Text += textBoxEmission.Text;
         }
 
