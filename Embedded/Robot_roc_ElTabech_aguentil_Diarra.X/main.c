@@ -8,6 +8,7 @@
 #include "ADC.h"
 #include "Robot.h"
 #include "main.h"
+#include "UART.h"
 
 unsigned char stateRobot;
 float speed = 10;

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Robot_ElTabech_Aguentil", "Robot_ElTabech_Aguentil.csproj", "{AD0A80DB-1F84-4A68-A850-80E7B6ADDB5C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtendedSerialPort", "..\..\ExtendedSerialPort .NET6 (1)\ExtendedSerialPort .NET6\ExtendedSerialPort\ExtendedSerialPort\ExtendedSerialPort.csproj", "{AF307BC1-A1A0-48F8-9F77-CF346E360FB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtendedSerialPort", "..\ExtendedSerialPort .NET6 (1)\ExtendedSerialPort .NET6\ExtendedSerialPort\ExtendedSerialPort\ExtendedSerialPort.csproj", "{0ACA0E36-C817-4BB8-AC91-ACBCB868B80B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{AD0A80DB-1F84-4A68-A850-80E7B6ADDB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD0A80DB-1F84-4A68-A850-80E7B6ADDB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD0A80DB-1F84-4A68-A850-80E7B6ADDB5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF307BC1-A1A0-48F8-9F77-CF346E360FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF307BC1-A1A0-48F8-9F77-CF346E360FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF307BC1-A1A0-48F8-9F77-CF346E360FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF307BC1-A1A0-48F8-9F77-CF346E360FB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ACA0E36-C817-4BB8-AC91-ACBCB868B80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ACA0E36-C817-4BB8-AC91-ACBCB868B80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ACA0E36-C817-4BB8-AC91-ACBCB868B80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ACA0E36-C817-4BB8-AC91-ACBCB868B80B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
