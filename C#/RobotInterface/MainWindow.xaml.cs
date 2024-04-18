@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExtendedSerialPort_NS;
 using System.IO.Ports;
+using System.Windows.Threading;
 
 
 namespace Robot_ElTabech_Aguentil
@@ -21,6 +22,7 @@ namespace Robot_ElTabech_Aguentil
     {
         ExtendedSerialPort serialPort1;
 
+        Robot robot = new Robot();
 
         public MainWindow()
         {
@@ -28,8 +30,21 @@ namespace Robot_ElTabech_Aguentil
             serialPort1 = new ExtendedSerialPort("COM3", 115200, Parity.None, 8, StopBits.One);
             serialPort1.Open();
 
+            timerAffichage = new DispatcherTimer();
+            timerAffichage.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            timerAffichage.Tick += TimerAffichage_Tick;
+            timerAffichage.Start();
+
         }
 
+
+        private void TimerAffichage_Tick(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        DispatcherTimer timerAffichage;
         bool button = false;
 
         private void buttonEnvoyer_Click(object sender, RoutedEventArgs e)
@@ -49,6 +64,16 @@ namespace Robot_ElTabech_Aguentil
             //RichTextBox.Text += "\n";
         }
 
+
+
+
+        public void SerialPort1_DataReceived(object sender, DataReceivedArgs e)
+        {
+            textBoxReception.Text += Encoding.UTF8.GetString(e.Data, 0, e.Data.Length);
+        }
+
+
+
         private void textBoxEmission_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -63,6 +88,8 @@ namespace Robot_ElTabech_Aguentil
             //RichTextBox.Text += textBoxEmission.Text;
         }
 
-      
+
+
+
     }
 }
