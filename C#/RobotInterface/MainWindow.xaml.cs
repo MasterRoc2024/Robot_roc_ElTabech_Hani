@@ -28,6 +28,7 @@ namespace Robot_ElTabech_Aguentil
         {
             InitializeComponent();
             serialPort1 = new ExtendedSerialPort("COM3", 115200, Parity.None, 8, StopBits.One);
+            serialPort1.DataReceived += SerialPort1_DataReceived1;
             serialPort1.Open();
 
             timerAffichage = new DispatcherTimer();
@@ -37,12 +38,27 @@ namespace Robot_ElTabech_Aguentil
 
         }
 
-
-        private void TimerAffichage_Tick(object? sender, EventArgs e)
+        private void SerialPort1_DataReceived1(object? sender, DataReceivedArgs e)
         {
-            throw new NotImplementedException();
+            robot.receivedText += Encoding.UTF8.GetString(e.Data, 0, e.Data.Length);
+            foreach (byte value in e.Data)
+            {
+                robot.byteListReceived.Enqueue(value);
+            }
         }
 
+        
+        private void TimerAffichage_Tick(object? sender, EventArgs e)
+        {
+            while (robot.byteListReceived != null)
+            {
+                var c = robot.byteListReceived.Dequeue();
+                textBoxReception.Text += "0x" + c.ToString("X2") + " ";
+                //textBoxReception.Text += robot.byteListReceived.Dequeue().ToString;
+            }
+
+        }
+        
 
         DispatcherTimer timerAffichage;
         bool button = false;
@@ -59,18 +75,22 @@ namespace Robot_ElTabech_Aguentil
                 buttonEnvoyer.Background = Brushes.RoyalBlue;
                 button = true;
             }
+            SendMessage();
             //RichTextBox.Text += "Reçu: ";
             //RichTextBox.Text += textBoxEmission.Text;
             //RichTextBox.Text += "\n";
         }
 
-
-
-
-        public void SerialPort1_DataReceived(object sender, DataReceivedArgs e)
+        private void buttonTest_Click(object sender, RoutedEventArgs e)
         {
-            textBoxReception.Text += Encoding.UTF8.GetString(e.Data, 0, e.Data.Length);
+            byte[] byteList = new byte[20];
+            for (int i = 0; i < 20; i++)
+                byteList[i] = (byte)(2 * i);
+            serialPort1.Write(byteList, 0, byteList.Length);
+
         }
+
+
 
 
 
@@ -82,10 +102,13 @@ namespace Robot_ElTabech_Aguentil
             }
         }
 
+
+
         private void SendMessage()
         {
-            WriteLine("ff");
-            //RichTextBox.Text += textBoxEmission.Text;
+            //serialPort1.WriteLine(textBoxEmission.Text);
+            textBoxReception.Text += textBoxEmission.Text;
+            textBoxEmission.Text = "";
         }
 
 

@@ -34,6 +34,7 @@ unsigned char CB_RX1_IsDataAvailable(void)
         return 0;
 }
 
+
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
     IFS0bits.U1RXIF = 0; // clear RX interrupt flag
     /* check for receive errors */
@@ -46,7 +47,8 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
     }
     /* get the data */
     while(U1STAbits.URXDA == 1) {
-        CB_RX1_Add(U1RXREG);
+        U1TXREG = U1RXREG;
+        //CB_RX1_Add(U1RXREG);
     }
 }
 int CB_RX1_GetDataSize(void)
