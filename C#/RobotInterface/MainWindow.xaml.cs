@@ -27,7 +27,7 @@ namespace Robot_ElTabech_Aguentil
         public MainWindow()
         {
             InitializeComponent();
-            serialPort1 = new ExtendedSerialPort("COM3", 115200, Parity.None, 8, StopBits.One);
+            serialPort1 = new ExtendedSerialPort("COM21", 115200, Parity.None, 8, StopBits.One);
             serialPort1.DataReceived += SerialPort1_DataReceived1;
             serialPort1.Open();
 
@@ -47,7 +47,9 @@ namespace Robot_ElTabech_Aguentil
             }
         }
 
-        
+        DispatcherTimer timerAffichage;
+
+
         private void TimerAffichage_Tick(object? sender, EventArgs e)
         {
             while (robot.byteListReceived != null)
@@ -60,7 +62,7 @@ namespace Robot_ElTabech_Aguentil
         }
         
 
-        DispatcherTimer timerAffichage;
+        
         bool button = false;
 
         private void buttonEnvoyer_Click(object sender, RoutedEventArgs e)
@@ -106,7 +108,7 @@ namespace Robot_ElTabech_Aguentil
 
         private void SendMessage()
         {
-            //serialPort1.WriteLine(textBoxEmission.Text);
+            serialPort1.WriteLine(textBoxEmission.Text);
             textBoxReception.Text += textBoxEmission.Text;
             textBoxEmission.Text = "";
         }

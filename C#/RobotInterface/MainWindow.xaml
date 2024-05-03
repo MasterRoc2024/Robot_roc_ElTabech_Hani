@@ -28,6 +28,7 @@
             <TextBox x:Name="textBoxReception" TextWrapping="Wrap" IsReadOnly="True"/>
         </GroupBox>
         <Button x:Name="buttonEnvoyer" Grid.Column="1" Content="Envoyer" HorizontalAlignment="Center" Grid.Row="2" Width="89" Margin="0,30,0,0" Grid.RowSpan="2" Click="buttonEnvoyer_Click"/>
+        <Button x:Name="buttonTest" Grid.Column="1" Content="Test" HorizontalAlignment="Left" Grid.Row="2" Width="89" Click="buttonTest_Click" Margin="256,30,0,0" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>

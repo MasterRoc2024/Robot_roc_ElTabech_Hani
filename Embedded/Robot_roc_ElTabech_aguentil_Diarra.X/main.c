@@ -142,7 +142,7 @@ int main(void) {
     // Boucle Principale
     /****************************************************************************************************/
     while (1) {
-
+    
 
 
         if (ADCIsConversionFinished() == 1) {
@@ -162,10 +162,16 @@ int main(void) {
             if (robotState.distanceTelemetreGauche > 30)LED_BLANCHE = 1;
             else LED_BLANCHE = 0;
 
-
+ 
         }
 
-            //SendMessageDirect((unsigned char*) "Bonjoun", 7);
-            //__delay32(40000000);
+        //SendMessageDirect((unsigned char*) "Bonjour", 7);
+        //__delay32(40000000);
+        
+        int i;
+        for (i = 0; i < CB_RX1_GetDataSize(); i++) {
+            unsigned char c = CB_RX1_Get();
+            SendMessage(&c, 1);
+       }
     }
 }
