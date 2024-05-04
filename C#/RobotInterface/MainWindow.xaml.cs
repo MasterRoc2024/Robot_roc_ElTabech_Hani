@@ -77,7 +77,27 @@ namespace Robot_ElTabech_Aguentil
         
             return checksum;
         }
-        
+
+        public void UartEncodeAndSendMessage(int msgFunction, int msgPayloadLength, byte[] msgPayload)
+        {
+            byte checksum = CalculateChecksum(msgFunction, msgPayloadLength, msgPayload);
+    
+            byte[] messageFrame = new byte[4 + msgPayloadLength];
+    
+            messageFrame[0] = 0xFE;
+            messageFrame[1] = 0x00;
+            messageFrame[2] = (byte)msgFunction;
+            messageFrame[3] = (byte)msgPayloadLength;
+            
+            for (int i = 0; i < msgPayloadLength; i++)
+            {
+                messageFrame[4 + i] = msgPayload[i];
+            }
+    
+            messageFrame[4 + msgPayloadLength] = checksum;
+    
+            serialPort.Write(messageFrame, 0, messageFrame.Length);
+            
         bool button = false;
 
         private void buttonEnvoyer_Click(object sender, RoutedEventArgs e)
